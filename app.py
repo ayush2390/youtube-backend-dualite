@@ -8,7 +8,7 @@ from pathlib import Path
 import re
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, origins=["*"])
 # Function to get the user's Downloads folder dynamically
 def get_download_folder():
     if platform.system() == 'Windows':
