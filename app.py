@@ -8,7 +8,8 @@ from pathlib import Path
 import re
 
 app = Flask(__name__)
-CORS(app, origins=["*"])
+CORS(app, resources={r"/*": {"origins": "*"}}, supports_credentials=True)
+
 # Function to get the user's Downloads folder dynamically
 def get_download_folder():
     if platform.system() == 'Windows':
@@ -70,4 +71,4 @@ def download_video():
         return jsonify({"error": str(e)}), 500
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8080, debug=True)
+  app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 8080)), debug=True)
