@@ -26,8 +26,6 @@ def sanitize_filename(filename):
     filename = re.sub(r'[<>:"/\\|?*]', '', filename)
     return filename
 
-proxies = {"https": "344444:444"}
-
 # API endpoint to download video
 @app.route('/download', methods=['POST'])
 def download_video():
@@ -39,6 +37,9 @@ def download_video():
         count = data.get('count') 
         po_token = data.get('poToken')
 
+        def return_string(input_string):
+            return input_string
+
         if not video_url:
             return jsonify({"error": "URL is required"}), 400
 
@@ -46,7 +47,7 @@ def download_video():
         download_path = get_download_folder()
 
         # Initialize YouTube object and get the highest resolution stream
-        yt = YouTube(video_url, on_progress_callback=on_progress, use_oauth=True, allow_oauth_cache=True)
+        yt = YouTube(video_url, on_progress_callback=on_progress, use_oauth=True, allow_oauth_cache=True, use_po_token=True, po_token_verifier=return_string(po_token))
         # ys = yt.streams.get_highest_resolution()
 
         if method == 'itag_18':
