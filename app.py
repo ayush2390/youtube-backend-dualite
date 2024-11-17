@@ -26,7 +26,7 @@ def sanitize_filename(filename):
     filename = re.sub(r'[<>:"/\\|?*]', '', filename)
     return filename
 
-proxies = {"https": 344444:444"}
+proxies = {"https": "344444:444"}
 
 # API endpoint to download video
 @app.route('/download', methods=['POST'])
