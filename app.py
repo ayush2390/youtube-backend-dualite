@@ -36,6 +36,7 @@ def download_video():
         method = data.get('method') 
         count = data.get('count') 
         poToken = data.get('poToken')
+        po_token = poToken
 
         if not video_url:
             return jsonify({"error": "URL is required"}), 400
@@ -44,7 +45,7 @@ def download_video():
         download_path = get_download_folder()
 
         # Initialize YouTube object and get the highest resolution stream
-        yt = YouTube(video_url, on_progress_callback=on_progress, use_po_token=True, po_token=poToken)
+        yt = YouTube(video_url, on_progress_callback=on_progress, use_po_token=True)
         # ys = yt.streams.get_highest_resolution()
 
         if method == 'itag_18':
