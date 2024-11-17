@@ -46,7 +46,7 @@ def download_video():
         download_path = get_download_folder()
 
         # Initialize YouTube object and get the highest resolution stream
-        yt = YouTube(video_url, on_progress_callback=on_progress, use_po_token=True, use_oauth=False, allow_oauth_cache=True)
+        yt = YouTube(video_url, on_progress_callback=on_progress, use_oauth=False, allow_oauth_cache=True)
         # ys = yt.streams.get_highest_resolution()
 
         if method == 'itag_18':
