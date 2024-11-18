@@ -26,6 +26,9 @@ def sanitize_filename(filename):
     filename = re.sub(r'[<>:"/\\|?*]', '', filename)
     return filename
 
+
+@app.route('/', methods=['GET'])
+    return 'API is working'
 # API endpoint to download video
 @app.route('/download', methods=['POST'])
 def download_video():
