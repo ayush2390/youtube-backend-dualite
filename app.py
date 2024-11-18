@@ -39,7 +39,8 @@ def download_video():
         video_url = data.get('url')
         method = data.get('method') 
         count = data.get('count') 
-        po_token = data.get('poToken')
+
+        print(video_url)
 
         def return_string(input_string):
             return input_string
