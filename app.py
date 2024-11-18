@@ -27,7 +27,8 @@ def sanitize_filename(filename):
     return filename
 
 
-@app.route('/', methods=['GET'])
+@app.route('/', methods=['GET']) 
+def check_api():
     return 'API is working'
 # API endpoint to download video
 @app.route('/download', methods=['POST'])
