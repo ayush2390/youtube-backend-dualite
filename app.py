@@ -76,6 +76,7 @@ def download_video():
         return jsonify({"message": f"'{yt.title}' downloaded successfully!"}), 200
 
     except Exception as e:
+        print("error", e)
         return jsonify({"error": str(e)}), 500
 
 if __name__ == '__main__':
